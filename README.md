@@ -2,35 +2,35 @@
 
 ## Qu'est ce qu'NPM (Ou Node Package Manager)
 
-Npm est un gestionnaire de paquet, il permet de partager du code avec n'importe qui utilisant aussi NPM, vous pouvez aussi gerer des paquets prives.
+Npm est un gestionnaire de paquet, il permet de partager des packages avec n'importe qui utilisant aussi NPM, vous pouvez aussi gerer des paquets prives.
 Npm se divise en 3 grands axes :
 
 ## Le site
 
-Le site NPM est utile pour connaitre les paquets disponible au telechargement depuis le Registry NPM (Voir plus bas)
+Le site [NPM](https://www.npmjs.com/) est utile pour connaitre les packages disponibles au telechargement depuis le Registry NPM (Voir plus bas)
 
 ## L'interface en ligne de commande
 
 L'interface en ligne de commande est utilisee par la majeure partie des developpeurs, avec l'interface en ligne
-de commande vous etes apte a telecharger des paquets de code, telecharger des applications depuis le Registry NPM.
-Vous pouvez telecharger des paquets et les adapter a vos besoins.
-Vous pouvez aussi executer des paquets depuis le Registry sans avoir a les telecharger
+de commande vous etes apte a telecharger des packages, telecharger des applications depuis le Registry NPM.
+Vous pouvez telecharger des packages et les adapter a vos besoins.
+Vous pouvez aussi executer des packages depuis le Registry sans avoir a les telecharger
 
 ## Registry ou L'enregistreur
 
-Le Registry NPM n'est ni plus ni moins qu'une enorme base de donnees de paquet JS pouvant contenir des applications ou du code
+Le Registry NPM n'est ni plus ni moins qu'une enorme base de donnees de packages JS pouvant aussi contenir des applications
 Accessible partout en utilisant NPM
 
 ## Pourquoi utiliser NPM
 
-Utiliser NPM c'est developper avec tous les developpeurs qui l'utilisent aussi; Vous pouvez partager des paquets avec eux 
-mais aussi recuperer des paquets de leur part. Pourquoi recreer ce qu'un autre a deja cree, surtout en prennant en compte le fait
-qu'il est possible d'adapter les paquets a vos besoins comme explique ci dessus.
+Utiliser NPM c'est developper avec tous les developpeurs qui l'utilisent aussi; Vous pouvez partager des packages avec eux 
+mais aussi recuperer des packages de leur part. Pourquoi recreer ce qu'un autre a deja cree, surtout en prennant en compte le fait
+qu'il est possible d'adapter les packages a vos besoins comme explique ci dessus.
 Vous pouvez trouver d'autre developpeurs qui ont les memes problemes que vous, ou les memes projets. Et par dessus tout, trouver d'autres moyens de patcher des problemes que vous rencontrez ou avez rencontre. Trouver d'autre moyen de developper de nouvelles fonctionnalites
 
 ## Qu'est ce qu'NPX (Node Package Execute)
 
-NPX est un module de NPM, il vous permet d'executer une applications depuis le Registry NPM sans avoir a le telecharger au prealable
+NPX est un module de NPM, il vous permet d'executer une application depuis le Registry NPM sans avoir a le telecharger au prealable
 
 ## Comment installer NPM ?
 
@@ -57,19 +57,18 @@ Ou
 ```
 pacmam -S npm
 ```
-
-=========
+<br>
 
 # NPM Presentation
 
 ## What is NPM (Node Package Manager)
 
-Npm is a large software to manage codes packages, with everybody else, you can also use npm to manage private packages
+Npm is a large software to manage packages, with everybody else, you can also use npm to manage private packages
 Npm is devided by 3 large axes :
 
 ## The Website
 
-NPM Website is usefull to know which packages are availables on NPM registry (See below)
+[NPM](https://www.npmjs.com/) Website is usefull to know which packages are availables on NPM registry (See below)
 
 ## The Command Line Interface (Or CLI)
 
