@@ -129,28 +129,28 @@ pacmam -S npm
 
 > **npm init**
 
-- Le npm init va créer un fichier **package.json** qui va permettre d'obtenir des informations sur son projet.
+Le npm init va créer un fichier **package.json** qui va permettre d'obtenir des informations sur son projet.
 
 ##### Exemple : 
 <img src="https://image.noelshack.com/fichiers/2022/41/1/1665393452-screenshot-demarrage-demonstration-visual-studio-code-1.png"/>
 
 ### Comment installer des modules ?
 
-- Pour pouvoir ajouter un nouveau pacquet à son projet il faudra utiliser :
+- ##### Pour pouvoir ajouter un nouveau pacquet à son projet il faudra utiliser :
 
 > **npm install (package-name)**
-    OR 
+OR 
 > **npm i (package-name)**
 
 ##### Exemple : 
 
 <img src="https://image.noelshack.com/fichiers/2022/41/1/1665394034-screenshot-demarrage-demonstration-visual-studio-code-2.png"/>
 
-- Pour pouvoir installer les pacquet déjà existants il faudra utiliser :
+- ##### Pour pouvoir installer les pacquet déjà existants il faudra utiliser :
 
 > **npm install**
-   OR
-   **npm i**
+OR
+**npm i**
 
 Cette commande va permettre d'installer tous les pacquet et modules qui ont été ajoutées au projet dans le fichier **package.json**.
 
@@ -158,9 +158,17 @@ Cette commande va permettre d'installer tous les pacquet et modules qui ont ét�
 
 <img src="https://image.noelshack.com/fichiers/2022/41/1/1665395731-screenshot-package-lock-json-demonstration-visual-studio-code-2.png"/>
 
+- ##### Vous pouvez télécharger une version spécifique d'un package pour revenir à une version antérieur, il vous faudra donc utiliser :
+
+> **npm install (package-name) @ (version du package)**
+
+##### Exemple :
+
+<img src="https://image.noelshack.com/fichiers/2022/41/1/1665410609-screenshot-package-lock-json-demonstration-visual-studio-code-5.png" />
+
 ### Comment installer les pacquet de dépendance de développement ?
 
-- Pour installer les outils qui ne seront utilisés que dans l’environnement de développement, il faudra utiliser :
+- ##### Pour installer les outils qui ne seront utilisés que dans l’environnement de développement, il faudra utiliser :
 
 > **npm install (package-name) --save-dev**
 
@@ -171,32 +179,117 @@ Cette commande va permettre d'installer tous les pacquet et modules qui ont ét�
 
 Il y aura donc dans le fichier **package.json** le **devDepencies** qui va être ajouter.
 
+### Comment listés des packages installés au projet ?
+
+- Pour lister les packages, au niveau local, il faudra utiliser la commande : 
+> **npm list**
+
+OR
+
+> **npm ls**
+
+##### Exemple : 
+
+<img src="https://image.noelshack.com/fichiers/2022/41/1/1665411218-screenshot-package-lock-json-demonstration-visual-studio-code-6.png" />
+
+### Obtenir des informations sur un package
+
+- Pour avoir des informations sur un package, il faudra utiliser :
+> npm **view (package-name)**
+
+- Pour avoir des informations sur une version d'un package, il faudra utiliser :
+> npm **view (package-name) (versions)**
+- Pour avoir de la documentation sur le package, il faudra utiliser :
+> npm **docs (package-name)**
+
 ### Quels sont les commandes pour faire les mises à jours de NPM ?
 
 **IMPORTANT** : Il faut toujours vérifier que les modules et paquets sont à jours.
 
-- #### Que faire avant de mettre à jour un paquet NPM ?
+- ##### Que faire avant de mettre à jour un paquet NPM ?
 
-  - Avant de mettre à jour **les paquets NPM** il faut regarder si un paquet est expiré, il faudra utiliser : 
+- Avant de mettre à jour **les paquets NPM** il faut regarder si un paquet est expiré, il faudra utiliser : 
 
-  > npm outdated
+> npm outdated
 
-  Il faudra utilisé la commande depuis le répertoire racine.
+Il faudra utilisé la commande depuis le répertoire racine.
 
-    #### Il y a deux type d'update :
+#### Il y a deux type d'update :
 
-     - Pour mettre à jour tous les paquets du projet, il faudra utiliser :
+- Pour mettre à jour tous les paquets du projet, il faudra utiliser :
 
-    > npm update
+> npm update
 
-    - Pour mettre à jour un paquet en particulier, il faudra utiliser : 
+- Pour mettre à jour un paquet en particulier, il faudra utiliser : 
 
-    > npm update (package-name)
+> npm update (package-name)
 
-    #### Installation de la nouvelle version NPM :
-     - Pour mettre à jour la nouvelle version de NPM, il faudra utiliser : 
-    
-    > npm install npm@latest -g
+#### Mettre à jour la nouvelle version NPM :
+- Pour mettre à jour la nouvelle version de NPM, il faudra utiliser : 
+> npm install npm@latest -g
 
-<br>
+#### Mettre à jour les packages de développement :
+- Pour mettre à jour un package en DevDepencies, il faudra utiliser :
+> npm update --dev
 
+### Quels sont les commandes pour désinstaller un package ?
+
+- Pour supprimer un package en local, il faudra utiliser la commande :
+
+> npm uninstall (package-name)
+
+OR
+> npm un (package-name)
+
+- Pour supprimer les packages du cache, il faudra utiliser la commande : 
+> npm cache clean
+
+## Utilisation de script NPM
+
+##### Comment executer un script ?
+
+- Pour permettre d'éxecuter un script et le faire fonctionner, il faudra utiliser :
+
+> npm run (nom du script)
+
+OR
+
+> npm run-script (nom du script)
+
+#### Comment voir la liste des scripts ?
+
+- Pour pouvoir voir la liste des scripts à disponible, il faudra utiliser la commande :
+
+> npm run
+
+#### Quels sont les autres commandes ?
+
+- Certaines actions peuvent être exécutées directement sans forcément utiliser la commandes :
+
+> npm run (nom de la commande)
+
+- ##### Quels sont les autres actions ?
+
+- Pour produire un fichier compressé des fichiers à déployer, il faudra utiliser :
+
+> npm pack
+
+- Pour publier un package, il faudra utiliser :
+
+> npm publish
+
+- Pour exécuter le script **start** qui sert généralement pour stopper le serveur Node.js, il faudra utiliser :
+
+>npm start
+
+- Pour exécuter le script **stop** qui sert généralement pour stopper le serveur Node.js, il faudra utiliser :
+
+>npm stop
+
+- Le script **restart** va exécuté les scripts **stop** et **start**, il faudra donc utiliser la commande : 
+
+> npm restart
+
+- Pour supprimer un package qui a été publié, il faudra utiliser : 
+
+> npm unpublish
