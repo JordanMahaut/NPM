@@ -4,6 +4,11 @@
 - Introducing NPX
 - Node Packages
 - Node Modules
+- Dependencies, DevDependencies
+- Semantic versioning
+- Package.json
+- Package-lock.json
+- Sources
 
 ## What's NPM (Node Package Manager)
 
@@ -37,7 +42,7 @@ Note: You can also install packages with NPM and run them with NPM, but you'll n
 # Node Packages
 
 An Node Package is a file or directory described in a **package.json** file
-The json file will give some informations about package, that's why you have to add this **package.json** with the most detailled informations.
+The **package.json** file will give some informations about package, that's why you have to add this **package.json** with the most detailled informations.<br>
 A Node Package can also be private or public [Read More About Package visibility](https://docs.npmjs.com/about-private-packages), and scoped or unscoped [Read More About Package scopes](https://docs.npmjs.com/about-scopes)
 
 A node package can be all of following (And more) : 
@@ -45,36 +50,35 @@ A node package can be all of following (And more) :
 1. A folder containing program described by **package.json**
 2. An compressed file like .tgz (1.)
 3. An URL resolving to (2.)
-4. An GitHub URL that when cloned, resolve to (1.)
+4. An GitHub URL that when cloned, will give you an folder containing program described by **package.json**
 
 <br>
 
 # Node Modules
 
-An Node Module is a file or a directory placed in ``` node_modules ``` folder. <br>
-Node Module is really powerful because you can able another developper using your module to work on his/her own code<br>
-That way, you can write some code for other developpers.<br>
-Node Module must be atleast one of following :
+A Node Module is an dependency that your own package will need to run
+It can be :
 
-- An folder with **package.json** containing an ``` main ``` field
-- A JS file
+- An folder (Structured like an Package)
+- An JS file
 
-Node Modules are not required to have **package.json** so all modules arent packages. <br>
-Node Modules are loaded by NodeJS function ``` require() ```
+You can see Node Modules in ``` node_modules ``` folder<br>
+Note: Sometimes an Node Module can be installed without some parts of, so you can delete ``` node_modules ``` folder to 
+redownload cleanly Node Modules required by your package.<br>
 
-```js
-let be_polite = require('hello_world_module');
-```
+An great resumed explanations of Node Modules could be : <br>
 
-In the code above, ``` be_polite ``` refers to ``` hello_world_module ```, be_polite will be an access point to 'hello_world_module'
+![](https://guillaume-richard.fr/wp-content/uploads/2020/06/node-modules-app-performance.png)
 
 <br>
+
+Because you're forced to download dependencies for each packages, who'll need some other packages
 
 # **package.json**
 
 **package.json** as explained above is a file who'll be essential for your Node Package.<br>
 This file can be compared to a map of your Package, you'll provides a lot of informations in.<br>
-You'll put in followings informations (And again more) :
+You'll put in followings informations (Not exhaustive, and again more) :
 
 - name : How is called your package
 - version : Version of current package
@@ -83,7 +87,7 @@ You'll put in followings informations (And again more) :
 - homepage : It can be a github repos or a Website, just the web referer to your package
 - bugs : Where to report bugs, also can be a repos git to issues page
 - author : Some information about you
-- main : Used to entry point of your Node Module
+- main : Used to entry point of your Node Package / Module
 - scripts : For advanced configuration of your package [Read More about script possibles values](https://docs.npmjs.com/cli/v8/using-npm/scripts)
 - dependencies : To add a dependency at your project with version as value ``` "express":"4.18.2" ``` will add depency of express version 4.18.2 for example 
 - devDependencies : To add a developpement depency on your package, see below
@@ -93,22 +97,41 @@ And many others again. <br>
 
 If you do not specify ``` scripts ``` for example, nmp will generate a default parameter, this way specifications arent required if you do not need to do specifics things.<br>
 
+# Semantic Versioning
 
-## Difference between Dependencies and devDependencies
+Semantic Versioning is an standart that you'll must use when you'll put significative modification update to your own package.<br>
+It's recommanded to publish your changes with an different package version, ``` version ``` field in your **package.json**.<br>
+That way, other developpers who depends of your code can understand the extent of changes in a specific version.<br>
 
-To understand following, you need to understand truthely what's mean 'dependency'<br>
-An dependency it a package that yours will need to work fine or just run (Depending of your code)<br>
-If you're using express for example, you need to specify it in your **package.json** file, this way npm will ask for download express if user hasn't installated dependency. <br>
+There is something to know to abording following, you'll need to understand some terms :
 
-It's like trying open Microsoft PowerPoint on Linux. You arent able to get PowerPoint, so how can you be able to do a prensentation on. Just for example.<br>
+1. MAJOR : MAJOR version when your update will break dependencies
+2. MINOR : MINOR version when your update (Adding a feature for example) will be compatible with previous version
+3. PATCH : PATCH version when your update make backwards compatibles bug fixes
 
-So, when you put dependencies in your **package.json** file you're telling what your package will need to use to work fine. <br>
+You can also [take a look to semantic versioning specifications](https://semver.org/) to improve your knowledge on this.<br>
 
-Now when you put devDependencies it's some dependencies to work on your package.<br>
-For example, when you need to bake a cake, you need to get a furnace, setting up the furnace, etc<br>
-And for eating the baked cake, you do not need a furnace just some other thing like, your mouth, a plate and optionnaly a flatware. <br>
-It's the same principe, devDependencies will be used to bake the cake and dependencies will be used to eat the cake. <br>
+There is specifications for semantic versioning in packages :
 
-====
+- It's recommanded to start package versions at ``` 1.0.0 ```
+- When you'll do a MAJOR update, you'll increase by 1 the first digit ``` 2.0.0 ``` like's named, it's an major update
+- When you'll do a MINOR update, you'll increase by 1 the middle digit ``` 2.1.0 ``` like's named, it's an minor update
+- When you'll do a PATCH update, you'll increase by 1 the last digit ``` 2.1.1 ```
 
-Encore a faire, package-lock.json
+To go deeper with semantic versioning using with NPM, you can consult this [Article](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept) 
+
+# Difference between Dependencies and devDependencies
+
+Dependencies are some packages that you'll need to use to run your package.<br>
+DevDependencies are some packages that you'll need to use to work on your package.<br>
+
+For example :
+
+If you want to cook a cake and taste your cake.
+
+For cooking you'll be able to use an Beater or just an Fork.<br><br>
+Where Beater is an devDependencies, usable but optional, you can also use a Fork as devDependencies.<br>
+Fork can be used to eat your cake too, it could be an Dependency too<br>
+
+
+<br>
